@@ -11,6 +11,8 @@ st.text("")
 
 # inputan user
 user_input = st.text_input('Input Sentence')
+model = ['LSTM']
+selectedModel = st.selectbox('Please Select the Model : ',model)
 
 # tombol
 button = st.button('Prediction',key=1)
@@ -25,7 +27,7 @@ if button==True:
         function.progressBar(my_bar,0,20)
         
         # load model
-        model_path = 'LSTM/LSTM_UU_ITE_model'
+        model_path = 'Model/'+selectedModel
         model = function.model(model_path,user_input)
 
         # DISPLAY LOADING PROGRESS FROM 20-70
