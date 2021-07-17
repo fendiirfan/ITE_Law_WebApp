@@ -1,0 +1,44 @@
+import streamlit as st
+import function
+
+
+st.title('Avoid Yourself From Violating The ITE Law on Social Media')
+st.text("")
+st.text("")
+st.text("Before comment in social media. Check your sentence below ")
+st.text("")
+st.text("")
+
+# inputan user
+user_input = st.text_input('Input Sentence')
+
+# tombol
+button = st.button('Prediction',key=1)
+
+if button==True:
+    if user_input.split(' ')==[]:
+        st.Write('Please Input the Correct Sentence')
+    else:
+        # DISPLAY LOADING PROGRESS FROM 0-20
+        my_bar = st.progress(0)
+
+        function.progressBar(my_bar,0,20)
+        
+        # load model
+        model_path = 'LSTM/LSTM_UU_ITE_model'
+        model = function.model(model_path,user_input)
+
+        # DISPLAY LOADING PROGRESS FROM 20-70
+        function.progressBar(my_bar,20,70)
+        
+        # PREDICTION
+        predict = model.predict()
+
+        # DISPLAY LOADING PROGRESS FROM 70-100
+        function.progressBar(my_bar,70,100)
+        
+        # DISPLAY PREDICTION
+        if predict != 'NEUTRAL':
+            st.write('BE CAREFUL. YOUR SENTENCE IS CLASSIFICATION AS '+ predict)
+        else:
+            st.write('YOUR SENTENCE ARE SAFE')
