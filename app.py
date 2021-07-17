@@ -16,7 +16,7 @@ user_input = st.text_input('Input Sentence')
 button = st.button('Prediction',key=1)
 
 if button==True:
-    if user_input.split(' ')==[]:
+    if len(user_input.split(' ')) <= 1:
         st.Write('Please Input the Correct Sentence')
     else:
         # DISPLAY LOADING PROGRESS FROM 0-20
