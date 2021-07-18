@@ -45,6 +45,6 @@ if button==True:
         
         # DISPLAY PREDICTION
         if predict != 'NEUTRAL':
-            st.write('BE CAREFUL. YOUR SENTENCE IS CLASSIFICATION AS '+ predict)
+            st.write('BE CAREFUL. YOUR SENTENCE IS CLASSIFIED AS '+ predict)
         else:
             st.write('YOUR SENTENCE ARE SAFE')
