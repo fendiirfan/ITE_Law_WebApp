@@ -18,11 +18,14 @@ selectedModel = st.selectbox('Please Select the Model : ',model)
 # tombol
 button = st.button('Prediction',key=1)
 
+invalidInput = (len(user_input) <= 3 or
+                len(user_input.split(' ')) > 200)
+
 if button==True:
-    if len(user_input.split(' ')) <= 1:
-        st.Write('Please Input the Correct Sentence')
+    if invalidInput:
+        st.write('Please Input the Correct Sentence')
     else:
-        # DISPLAY LOADING PROGRESS FROM 0-20
+        # DISPLAY LOADING PROGRESS FROM 0-20s
         my_bar = st.progress(0)
 
         function.progressBar(my_bar,0,20)
