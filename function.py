@@ -35,13 +35,10 @@ class model:
 
         def applyKamusAlayandStopWord(text):
             # load dicionary
-            kamusAlay = pd.read_csv('https://raw.githubusercontent.com/nasalsabila/kamus-alay/master/colloquial-indonesian-lexicon.csv')
-            stopWord = pd.read_csv('https://raw.githubusercontent.com/datascienceid/stopwords-bahasa-indonesia/master/stopwords_id_satya.txt', header = None)
+            kamusAlay = pd.read_csv('input/colloquial-indonesian-lexicon2.csv')
+            stopWord = pd.read_csv('input/stopwords_id_satya.txt', header = None)
             stopWord = stopWord[0].to_list()
-
-            url='https://drive.google.com/file/d/1TxCnZewbG_3BwJ2ywjRMIxNl8zMpy2Ng/view?usp=sharing'
-            url2='https://drive.google.com/uc?id=' + url.split('/')[-2]
-            kamusTambahan = pd.read_csv(url2)
+            kamusTambahan = pd.read_csv('input/colloquial-indonesian-lexicon1.csv')
 
             # split
             text = text.split(' ')
